@@ -1,0 +1,58 @@
+{
+  "name": "n8n-nodes-ellevo",
+  "version": "1.0.0",
+  "description": "Native n8n nodes for Ellevo — Help Desk, Service Desk, CSC and ticket management system (333 endpoints covered)",
+  "keywords": [
+    "n8n-community-node-package",
+    "ellevo",
+    "helpdesk",
+    "servicedesk",
+    "chamados",
+    "tickets",
+    "csc",
+    "brazil"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/espindolavinicius/n8n-nodes-ellevo",
+  "author": {
+    "name": "Vinicius Espindola",
+    "email": "contato@espindolavinicius.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/espindolavinicius/n8n-nodes-ellevo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/espindolavinicius/n8n-nodes-ellevo/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "copyfiles -u 2 nodes/**/*.png dist/nodes/ 2>/dev/null || true",
+    "dev": "tsc --watch",
+    "lint": "eslint nodes credentials --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ElevoApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Ellevo/Ellevo.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "copyfiles": "^2.4.1",
+    "typescript": "^5.0.0",
+    "n8n-workflow": "*"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
